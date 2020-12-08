@@ -61,3 +61,5 @@ getAllData()
   .then(takeFirstStep)
   .then(takeNextStep)
   .then(result => console.log(result))
+
+//trivial change
