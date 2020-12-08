@@ -34,9 +34,6 @@ function takeFirstStep(parsedMoves) {
   return takeNextStep([0, 0, moves ,[0], true])
 }
 
-  //return takeNextStep([0, 0, parsedMoves,[0], true])
-
-
 function takeNextStep(array) {
   let count = array[0]
   let position = array[1]
@@ -58,11 +55,10 @@ function takeNextStep(array) {
 
   }
   
-  visitedPositions.includes(position) ? visitedPositions.push(position) : shouldContinue === false
-  // if (visitedPositions.includes(position)) {
-  //   shouldContinue === false
+  if (visitedPositions.includes(position)) {
+    shouldContinue === false
 
-  // } else visitedPositions.push(position)
+  } else visitedPositions.push(position)
   
   return [count, position, parsedMoves, visitedPositions,shouldContinue]
   }
