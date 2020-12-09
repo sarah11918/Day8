@@ -28,6 +28,8 @@ function parseMoves(array) {
 }
 //HERE HAVE PARSED MOVES
 
+
+
 // parsedMoves: array of instructions: [symbol, offset]
 function takeFirstStep(parsedMoves) {
   let moves = [...parsedMoves.slice(0,246), ["nop",233], ...parsedMoves.slice(247)]
@@ -65,6 +67,20 @@ function takeNextStep(array) {
   return [count, position, parsedMoves, visitedPositions,shouldContinue, visitedPositions.slice(-1), possibleChanges.length]
   }
 
+//AT THIS POINT, I KNOW THERE ARE 102 VISITED ITEMS THAT START WITH JMP OR NOP, AND CHANGING ONE OF THEM WILL ESCAPE ME OUT OF THE INFINITE LOOP
+
+//I know that I can create a new array for parsedMoves based on: [...parsedMoves.split(0,n), ["opposite instruction", same number], ...parsedMoves.split(n+1)] and then check it with the chain of functions below
+
+function updateMovesWithChangedItem(position) {
+  if (parsedMoves[position][0] === "jmp") {
+    let newInstruction === "nop"
+  } else let newInstruction === "jmp"
+
+  let moves = [...parsedMoves.split(0,position), [newInstruction, parsedMoves[position][1]], ...parsedMoves.split(position + 1)]
+
+  return moves
+
+}
 
 
 
